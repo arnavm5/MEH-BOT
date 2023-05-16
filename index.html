@@ -15110,8 +15110,34 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h1 id="MEH-BOT:-Maximizing-Emotional-Help-By-Organizing-Text">MEH BOT: Maximizing Emotional Help By Organizing Text<a class="anchor-link" href="#MEH-BOT:-Maximizing-Emotional-Help-By-Organizing-Text">&#182;</a></h1><h3 id="Purpose:">Purpose:<a class="anchor-link" href="#Purpose:">&#182;</a></h3><p>We wanted to create a bot that has the capability of generating text that would help other people feel better. Our goal was to provide a way to recieve emotional relief through the use of this bot (or at least a starting framework to do so). Everyone has problems, we were hoping to provide an aid to those problems.</p>
-<h3 id="Generating-Helpful-Quotes">Generating Helpful Quotes<a class="anchor-link" href="#Generating-Helpful-Quotes">&#182;</a></h3><p>In this model, we are using the Inspirational Quotes dataset, <a href="https://www.kaggle.com/datasets/mattimansha/inspirational-quotes">https://www.kaggle.com/datasets/mattimansha/inspirational-quotes</a> in order to generate new phrases that would be comperable to a quote that has already been said. The idea is to take the queries that have been provided and realte them to already existing inspirational quotes. That way we can hope to produce a response that can give comfort to a user.</p>
+<h1 id="MEH-BOT:-Maximizing-Emotional-Help-By-Organizing-Text-%F0%9F%A4%96">MEH BOT: Maximizing Emotional Help By Organizing Text &#129302;<a class="anchor-link" href="#MEH-BOT:-Maximizing-Emotional-Help-By-Organizing-Text-%F0%9F%A4%96">&#182;</a></h1><p>By: Rohan Mathur, Ritik Chopra, Arnav Mittal</p>
+
+</div>
+</div>
+</div>
+</div>
+<div  class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h2 id="Purpose-%E2%AD%90">Purpose &#11088;<a class="anchor-link" href="#Purpose-%E2%AD%90">&#182;</a></h2><p>Mental health is an often overlooked portion of our daily lives and as such a major goal of this project is to provide aid to one’s own mental strife as a consequence of daily general inconveniences.</p>
+<p>Inspirational quotes have been a part of our culture for a long time. We can find examples of this in t-shirts, decorations, as well as online images.</p>
+<p>Giving (at least a little) happiness through the form of tailored inspirational quotes could go a long way.</p>
+<p>We wanted to create a bot that has the capability of generating text that would help other people feel better. Our goal was to provide a way to receive emotional relief through the use of this bot (or at least a starting framework to do so). Everyone has problems, we were hoping to provide an aid to those problems.</p>
+
+</div>
+</div>
+</div>
+</div>
+<div  class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h2 id="Generating-Helpful-Quotes-%F0%9F%AA%94">Generating Helpful Quotes &#129684;<a class="anchor-link" href="#Generating-Helpful-Quotes-%F0%9F%AA%94">&#182;</a></h2><p>In this model, we are using the Inspirational Quotes dataset, <a href="https://www.kaggle.com/datasets/mattimansha/inspirational-quotes">https://www.kaggle.com/datasets/mattimansha/inspirational-quotes</a> in order to generate new phrases that would be comparable to a quote that has already been said. The idea is to take the queries that have been provided and relate them to already existing inspirational quotes. That way we can hope to produce a response that can give comfort to a user.</p>
 
 </div>
 </div>
@@ -15124,6 +15150,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <h2 id="Import-the-libraries-%F0%9F%93%9A">Import the libraries &#128218;<a class="anchor-link" href="#Import-the-libraries-%F0%9F%93%9A">&#182;</a></h2><p>As the first step, we need to import the required libraries:</p>
+<p>We make use of several tensorflow libraries that will be discussed later. It should be noted that we are using tensorflow’s sequential model for the processing of our data. Considering that we are processing a sequence of sentences, the need to understand previous sentiments of the sentence requires the use of a sequential model.</p>
 
 </div>
 </div>
@@ -15136,7 +15163,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[1]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># keras module for building LSTM </span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Tensorflow module for building generative model </span>
 <span class="kn">import</span> <span class="nn">tensorflow</span> <span class="k">as</span> <span class="nn">tf</span>
 <span class="kn">from</span> <span class="nn">tensorflow.keras.utils</span> <span class="kn">import</span> <span class="n">pad_sequences</span>
 <span class="kn">from</span> <span class="nn">tensorflow.keras.layers</span> <span class="kn">import</span> <span class="n">Embedding</span><span class="p">,</span> <span class="n">LSTM</span><span class="p">,</span> <span class="n">Dense</span><span class="p">,</span> <span class="n">Dropout</span>
@@ -15166,12 +15193,13 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h2 id="Load-the-dataset-%F0%9F%93%8B">Load the dataset &#128203;<a class="anchor-link" href="#Load-the-dataset-%F0%9F%93%8B">&#182;</a></h2><p>Load the dataset of Categories and Quotes.</p>
+<h2 id="Load-the-dataset-%F0%9F%93%8B">Load the dataset &#128203;<a class="anchor-link" href="#Load-the-dataset-%F0%9F%93%8B">&#182;</a></h2><p>In this section we are going to load the dataset of Categories and Quotes.</p>
+<p>Since our dataset is in the form of a csv file, we can use the Pandas library to convert the CSV into a dataframe. We then isolated the columns that we wanted which were the &quot;Category&quot; and &quot;Quote&quot; column. We can then concatenate the two columns together by separating them with a colon and creating a new column in our dataset. We then converted our new column into a list.</p>
 
 </div>
 </div>
 </div>
-</div><div  class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+</div><div  class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -15180,15 +15208,233 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;./inspiration.csv&quot;</span><span class="p">,</span> <span class="n">index_col</span> <span class="o">=</span> <span class="mi">0</span><span class="p">)</span>
-<span class="n">data</span>
 <span class="n">data</span><span class="p">[</span><span class="s2">&quot;all_text&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s2">&quot;Category&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">str</span><span class="p">)</span> <span class="o">+</span><span class="s2">&quot;:&quot;</span><span class="o">+</span> <span class="n">data</span><span class="p">[</span><span class="s2">&quot;Quote&quot;</span><span class="p">]</span>
 <span class="n">new_data</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s2">&quot;all_text&quot;</span><span class="p">]</span>
 <span class="n">quotes</span> <span class="o">=</span> <span class="n">new_data</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
+<span class="n">data</span>
 </pre></div>
 
      </div>
 </div>
 </div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[2]:</div>
+
+
+
+<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html">
+
+  <div id="df-c6add2c5-89eb-48fa-8c2a-3bff0af70f85">
+    <div class="colab-df-container">
+      <div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Category</th>
+      <th>Quote</th>
+      <th>Image-link</th>
+      <th>Quote-url</th>
+      <th>all_text</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>LOVE</td>
+      <td>Let us see what love can do.</td>
+      <td>https://assets.passiton.com/quotes/quote_artwo...</td>
+      <td>/inspirational-quotes/6900-let-us-see-what-lov...</td>
+      <td>LOVE:Let us see what love can do.</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>LOVE</td>
+      <td>We can’t heal the world today. But we can begi...</td>
+      <td>https://assets.passiton.com/quotes/quote_artwo...</td>
+      <td>/inspirational-quotes/8169-we-can-t-heal-the-w...</td>
+      <td>LOVE:We can’t heal the world today. But we can...</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>LISTENING</td>
+      <td>Listen with curiosity. Speak with honesty. Act...</td>
+      <td>https://assets.passiton.com/quotes/quote_artwo...</td>
+      <td>/inspirational-quotes/8083-listen-with-curiosi...</td>
+      <td>LISTENING:Listen with curiosity. Speak with ho...</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>LISTENING</td>
+      <td>The most basic and powerful way to connect to ...</td>
+      <td>https://assets.passiton.com/quotes/quote_artwo...</td>
+      <td>/inspirational-quotes/7139-the-most-basic-and-...</td>
+      <td>LISTENING:The most basic and powerful way to c...</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>LISTENING</td>
+      <td>Knowledge speaks, but wisdom listens.</td>
+      <td>https://assets.passiton.com/quotes/quote_artwo...</td>
+      <td>/inspirational-quotes/8376-knowledge-speaks-bu...</td>
+      <td>LISTENING:Knowledge speaks, but wisdom listens.</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>1741</th>
+      <td>COURAGE</td>
+      <td>I was set free because my greatest fear had be...</td>
+      <td>https://assets.passiton.com/quotes/quote_artwo...</td>
+      <td>/inspirational-quotes/7022-i-was-set-free-beca...</td>
+      <td>COURAGE:I was set free because my greatest fea...</td>
+    </tr>
+    <tr>
+      <th>1742</th>
+      <td>COURAGE</td>
+      <td>Comedy is defiance. It's a snort of contempt i...</td>
+      <td>https://assets.passiton.com/quotes/quote_artwo...</td>
+      <td>/inspirational-quotes/7021-comedy-is-defiance-...</td>
+      <td>COURAGE:Comedy is defiance. It's a snort of co...</td>
+    </tr>
+    <tr>
+      <th>1743</th>
+      <td>PURPOSE</td>
+      <td>Every piece of the universe, even the tiniest ...</td>
+      <td>https://assets.passiton.com/quotes/quote_artwo...</td>
+      <td>/inspirational-quotes/6908-every-piece-of-the-...</td>
+      <td>PURPOSE:Every piece of the universe, even the ...</td>
+    </tr>
+    <tr>
+      <th>1744</th>
+      <td>JUSTICE</td>
+      <td>Take a stand for what's right. Raise a ruckus ...</td>
+      <td>https://assets.passiton.com/quotes/quote_artwo...</td>
+      <td>/inspirational-quotes/6781-take-a-stand-for-wh...</td>
+      <td>JUSTICE:Take a stand for what's right. Raise a...</td>
+    </tr>
+    <tr>
+      <th>1745</th>
+      <td>LOVE</td>
+      <td>There's something about love that people just ...</td>
+      <td>https://assets.passiton.com/quotes/quote_artwo...</td>
+      <td>/inspirational-quotes/6380-theres-something-ab...</td>
+      <td>LOVE:There's something about love that people ...</td>
+    </tr>
+  </tbody>
+</table>
+<p>1746 rows × 5 columns</p>
+</div>
+      <button class="colab-df-convert" onclick="convertToInteractive('df-c6add2c5-89eb-48fa-8c2a-3bff0af70f85')"
+              title="Convert this dataframe to an interactive table."
+              style="display:none;">
+        
+  <svg xmlns="http://www.w3.org/2000/svg" height="24px"viewBox="0 0 24 24"
+       width="24px">
+    <path d="M0 0h24v24H0V0z" fill="none"/>
+    <path d="M18.56 5.44l.94 2.06.94-2.06 2.06-.94-2.06-.94-.94-2.06-.94 2.06-2.06.94zm-11 1L8.5 8.5l.94-2.06 2.06-.94-2.06-.94L8.5 2.5l-.94 2.06-2.06.94zm10 10l.94 2.06.94-2.06 2.06-.94-2.06-.94-.94-2.06-.94 2.06-2.06.94z"/><path d="M17.41 7.96l-1.37-1.37c-.4-.4-.92-.59-1.43-.59-.52 0-1.04.2-1.43.59L10.3 9.45l-7.72 7.72c-.78.78-.78 2.05 0 2.83L4 21.41c.39.39.9.59 1.41.59.51 0 1.02-.2 1.41-.59l7.78-7.78 2.81-2.81c.8-.78.8-2.07 0-2.86zM5.41 20L4 18.59l7.72-7.72 1.47 1.35L5.41 20z"/>
+  </svg>
+      </button>
+      
+  <style>
+    .colab-df-container {
+      display:flex;
+      flex-wrap:wrap;
+      gap: 12px;
+    }
+
+    .colab-df-convert {
+      background-color: #E8F0FE;
+      border: none;
+      border-radius: 50%;
+      cursor: pointer;
+      display: none;
+      fill: #1967D2;
+      height: 32px;
+      padding: 0 0 0 0;
+      width: 32px;
+    }
+
+    .colab-df-convert:hover {
+      background-color: #E2EBFA;
+      box-shadow: 0px 1px 2px rgba(60, 64, 67, 0.3), 0px 1px 3px 1px rgba(60, 64, 67, 0.15);
+      fill: #174EA6;
+    }
+
+    [theme=dark] .colab-df-convert {
+      background-color: #3B4455;
+      fill: #D2E3FC;
+    }
+
+    [theme=dark] .colab-df-convert:hover {
+      background-color: #434B5C;
+      box-shadow: 0px 1px 3px 1px rgba(0, 0, 0, 0.15);
+      filter: drop-shadow(0px 1px 2px rgba(0, 0, 0, 0.3));
+      fill: #FFFFFF;
+    }
+  </style>
+
+      <script>
+        const buttonEl =
+          document.querySelector('#df-c6add2c5-89eb-48fa-8c2a-3bff0af70f85 button.colab-df-convert');
+        buttonEl.style.display =
+          google.colab.kernel.accessAllowed ? 'block' : 'none';
+
+        async function convertToInteractive(key) {
+          const element = document.querySelector('#df-c6add2c5-89eb-48fa-8c2a-3bff0af70f85');
+          const dataTable =
+            await google.colab.kernel.invokeFunction('convertToInteractive',
+                                                     [key], {});
+          if (!dataTable) return;
+
+          const docLinkHtml = 'Like what you see? Visit the ' +
+            '<a target="_blank" href=https://colab.research.google.com/notebooks/data_table.ipynb>data table notebook</a>'
+            + ' to learn more about interactive tables.';
+          element.innerHTML = '';
+          dataTable['output_type'] = 'display_data';
+          await google.colab.output.renderOutput(dataTable, element);
+          const docLink = document.createElement('div');
+          docLink.innerHTML = docLinkHtml;
+          element.appendChild(docLink);
+        }
+      </script>
+    </div>
+  </div>
+  
+</div>
+
+</div>
+
+</div>
+
 </div>
 
 </div>
@@ -15198,7 +15444,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h1 id="Analyzing-the-dataset-%F0%9F%93%8A">Analyzing the dataset &#128202;<a class="anchor-link" href="#Analyzing-the-dataset-%F0%9F%93%8A">&#182;</a></h1><p>Creating a distribution of the occurance of each category.</p>
+<h1 id="Analyzing-the-dataset-%F0%9F%93%8A">Analyzing the dataset &#128202;<a class="anchor-link" href="#Analyzing-the-dataset-%F0%9F%93%8A">&#182;</a></h1><p>Creating a distribution of the occurence of each category.</p>
 <p>We can see that there is a non-uniform distribution of the number of quotes per category. This indicates that our predictions may be biased towards the examples with categories of a higher amount of quotes.</p>
 <p>(Unimplemented): To possibly resolve this, we can generate more quotes for the categories with lower amount of quotes and make a uniform distribution with a higher example count or reduce the number of examples from the higher category counts on a random basis to create a uniform distibution with a lower example count.</p>
 
@@ -15446,18 +15692,14 @@ class="
     <span class="n">splitted</span> <span class="o">=</span> <span class="n">sent</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot; &quot;</span><span class="p">)</span>
     <span class="k">for</span> <span class="n">word</span> <span class="ow">in</span> <span class="n">splitted</span><span class="p">:</span>
         <span class="n">words</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">word</span><span class="p">)</span>
-        <span class="c1"># if word not in words.keys():</span>
-        <span class="c1">#     words[word] = 1</span>
-        <span class="c1"># else:</span>
-        <span class="c1">#     words[word] += 1</span>
-<span class="c1"># print(tokenizer.word_index.keys())</span>
 <span class="n">mySeries</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">words</span><span class="p">)</span> 
-<span class="c1"># print(mySeries.value_counts())</span>
+
 <span class="n">mySeries</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()[</span><span class="mi">0</span><span class="p">:</span><span class="mi">100</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span><span class="mi">8</span><span class="p">),</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;cornflowerblue&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Distribution of Words&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Words&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Word Frequency&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
 <span class="n">mySeries</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()[</span><span class="mi">100</span><span class="p">:</span><span class="mi">200</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span><span class="mi">8</span><span class="p">),</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Distribution of Words&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Words&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span>
@@ -15743,51 +15985,51 @@ it generated sequences of random words that happened to appear frequently in the
 
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
 <pre>Epoch 1/25
-1273/1273 [==============================] - 80s 58ms/step - loss: 5.6520 - accuracy: 0.1239
+1273/1273 [==============================] - 63s 44ms/step - loss: 5.6295 - accuracy: 0.1282
 Epoch 2/25
-1273/1273 [==============================] - 37s 29ms/step - loss: 4.9330 - accuracy: 0.1841
+1273/1273 [==============================] - 32s 25ms/step - loss: 4.9172 - accuracy: 0.1873
 Epoch 3/25
-1273/1273 [==============================] - 34s 27ms/step - loss: 4.4191 - accuracy: 0.2281
+1273/1273 [==============================] - 29s 23ms/step - loss: 4.4032 - accuracy: 0.2293
 Epoch 4/25
-1273/1273 [==============================] - 33s 26ms/step - loss: 3.8706 - accuracy: 0.2753
+1273/1273 [==============================] - 29s 23ms/step - loss: 3.8637 - accuracy: 0.2763
 Epoch 5/25
-1273/1273 [==============================] - 33s 26ms/step - loss: 3.3038 - accuracy: 0.3292
+1273/1273 [==============================] - 29s 23ms/step - loss: 3.3014 - accuracy: 0.3304
 Epoch 6/25
-1273/1273 [==============================] - 34s 27ms/step - loss: 2.7669 - accuracy: 0.3976
+1273/1273 [==============================] - 29s 23ms/step - loss: 2.7737 - accuracy: 0.3981
 Epoch 7/25
-1273/1273 [==============================] - 34s 27ms/step - loss: 2.3122 - accuracy: 0.4679
+1273/1273 [==============================] - 29s 23ms/step - loss: 2.3122 - accuracy: 0.4700
 Epoch 8/25
-1273/1273 [==============================] - 31s 24ms/step - loss: 1.9658 - accuracy: 0.5320
+1273/1273 [==============================] - 28s 22ms/step - loss: 1.9608 - accuracy: 0.5328
 Epoch 9/25
-1273/1273 [==============================] - 33s 26ms/step - loss: 1.7079 - accuracy: 0.5821
+1273/1273 [==============================] - 28s 22ms/step - loss: 1.7196 - accuracy: 0.5803
 Epoch 10/25
-1273/1273 [==============================] - 34s 26ms/step - loss: 1.5255 - accuracy: 0.6177
+1273/1273 [==============================] - 28s 22ms/step - loss: 1.5416 - accuracy: 0.6187
 Epoch 11/25
-1273/1273 [==============================] - 32s 25ms/step - loss: 1.3962 - accuracy: 0.6459
+1273/1273 [==============================] - 28s 22ms/step - loss: 1.4056 - accuracy: 0.6420
 Epoch 12/25
-1273/1273 [==============================] - 32s 25ms/step - loss: 1.2899 - accuracy: 0.6712
+1273/1273 [==============================] - 28s 22ms/step - loss: 1.2994 - accuracy: 0.6650
 Epoch 13/25
-1273/1273 [==============================] - 31s 24ms/step - loss: 1.2217 - accuracy: 0.6857
+1273/1273 [==============================] - 28s 22ms/step - loss: 1.2268 - accuracy: 0.6838
 Epoch 14/25
-1273/1273 [==============================] - 30s 24ms/step - loss: 1.1688 - accuracy: 0.6959
+1273/1273 [==============================] - 29s 23ms/step - loss: 1.1745 - accuracy: 0.6959
 Epoch 15/25
-1273/1273 [==============================] - 31s 25ms/step - loss: 1.1282 - accuracy: 0.7049
+1273/1273 [==============================] - 28s 22ms/step - loss: 1.1222 - accuracy: 0.7072
 Epoch 16/25
-1273/1273 [==============================] - 31s 24ms/step - loss: 1.0979 - accuracy: 0.7098
+1273/1273 [==============================] - 28s 22ms/step - loss: 1.1127 - accuracy: 0.7113
 Epoch 17/25
-1273/1273 [==============================] - 31s 24ms/step - loss: 1.0818 - accuracy: 0.7148
+1273/1273 [==============================] - 28s 22ms/step - loss: 1.0836 - accuracy: 0.7161
 Epoch 18/25
-1273/1273 [==============================] - 30s 24ms/step - loss: 1.0588 - accuracy: 0.7213
+1273/1273 [==============================] - 29s 22ms/step - loss: 1.0783 - accuracy: 0.7171
 Epoch 19/25
-1273/1273 [==============================] - 31s 24ms/step - loss: 1.0482 - accuracy: 0.7267
+1273/1273 [==============================] - 28s 22ms/step - loss: 1.0590 - accuracy: 0.7220
 Epoch 20/25
-1273/1273 [==============================] - 31s 24ms/step - loss: 1.0292 - accuracy: 0.7281
+1273/1273 [==============================] - 28s 22ms/step - loss: 1.0428 - accuracy: 0.7262
 Epoch 21/25
-1273/1273 [==============================] - 30s 24ms/step - loss: 1.0326 - accuracy: 0.7311
+1273/1273 [==============================] - 28s 22ms/step - loss: 1.0543 - accuracy: 0.7219
 Epoch 22/25
-1273/1273 [==============================] - 31s 24ms/step - loss: 1.0463 - accuracy: 0.7247
+1273/1273 [==============================] - 28s 22ms/step - loss: 1.0433 - accuracy: 0.7245
 Epoch 23/25
-1273/1273 [==============================] - 31s 24ms/step - loss: 1.0359 - accuracy: 0.7273
+1273/1273 [==============================] - 28s 22ms/step - loss: 1.0682 - accuracy: 0.7195
 </pre>
 </div>
 </div>
@@ -15799,7 +16041,7 @@ Epoch 23/25
 
 
 <div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
-<pre>&lt;keras.callbacks.History at 0x7fac119efe80&gt;</pre>
+<pre>&lt;keras.callbacks.History at 0x7f6296b8ca60&gt;</pre>
 </div>
 
 </div>
@@ -15886,15 +16128,15 @@ Epoch 23/25
 
 
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
-<pre>Is It Okay To Feel Sad? The End , But If You Want To Go .
-What Is My Life&#39;S Purpose? Time With Your Heart , Your Mind , Education Is Day .
-What&#39;S The Meaning Of Life? Life Is To Find Your Gift .
-What Is My Destiny? Soul To Be Kind , And Love Will Love You Can .
-Am I Loved? Believe That The Greatest Gift You Can Do Is The Family Is The Best .
-How To Be Strong? Able To Put Up , Bad Happens To Make A Difference In The World .
-What Can I Do? Be Year To Do Something , You&#39;Ll Find A Way .
-I Am Depressed. Not Afraid To Fail Again .
-How Do I Help Myself? Them Together .
+<pre>Is It Okay To Feel Sad? The End Of Your Comfort Zone .
+What Is My Life&#39;S Purpose? To Succeed And You Are What We Do .
+What&#39;S The Meaning Of Life? Life Is To Find It .
+What Is My Destiny? Mission In Life Is To Be Kind , Compassionate , Caring , And Loving In Order To Find And Feel The Deepest Joy Of Life .
+Am I Loved? To Be Blessed .
+How To Be Strong? A Rainbow In Someone&#39;S Cloud .
+What Can I Do? Be Counted What You Can Do .
+I Am Depressed. Not Afraid , But I Am About To Me .
+How Do I Help Myself? My Soul .
 </pre>
 </div>
 </div>
@@ -15903,6 +16145,18 @@ How Do I Help Myself? Them Together .
 
 </div>
 
+</div>
+<div  class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h2 id="Results-%E2%9C%85">Results &#9989;<a class="anchor-link" href="#Results-%E2%9C%85">&#182;</a></h2><p>Here are our results after we trained our model and used it to generate text based on specific outputs. We had an accuracy of 71.95% and a loss of 1.0682. From the sentences, we can see a mix of good and bad sentences. Some sentences like “A Rainbow In Someone'S Cloud .” could be a conceivable response to the question we asked. The sentence isn’t perfect grammatically, but the message behind the sentence answers the question we asked. On the other hand, we have some sentences like “Not Afraid , But I Am About To Me .” which don’t answer the question asked at all. These sentences read like a random jumble of words or even an answer to a different question.</p>
+
+</div>
+</div>
+</div>
 </div>
 <div  class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
 <div class="jp-Cell-inputWrapper">
